@@ -16,7 +16,7 @@ export default function ListItem({item,change,config}) {
             <Col classList={'bo c-expand'}>
                 
                 <Row classList={'bo py-2 r-x-start'}>
-                    <Col classList={'bo c-collapse  c-x-center'}>
+                    <Col classList={'bo c-collapse  c-x-start'}>
                         <Col>
                             <Typography sx={{color:'#457848', fontSize:'1rem', fontWeight:1000,marginLeft:'10px'}} >
                                 Name
@@ -31,7 +31,7 @@ export default function ListItem({item,change,config}) {
                 </Row>
 
                 <Row classList={'bo py-2 r-x-start'}>
-                    <Col classList={'bo c-collapse  c-x-center'}>
+                    <Col classList={'bo c-expand  c-x-start'}>
                         <Col>
                             <Typography sx={{color:'#457848', fontSize:'1rem', fontWeight:1000,marginLeft:'10px'}} >
                                 Address
