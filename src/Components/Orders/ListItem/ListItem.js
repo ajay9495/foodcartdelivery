@@ -39,14 +39,18 @@ export default function ListItem({item,change,config}) {
                         </Col>
                         <Col>
                             <Typography sx={{color:'#457848', fontSize:'.75rem', fontWeight:100,marginLeft:'10px'}} >
-                                {item.address}
+                                {item.address+". Near : "+item.landmark}
                             </Typography>  
                         </Col>
                     </Col>
                 </Row>
 
                 <Row classList={'bo py-2 r-x-start'}>
-                    <Button onClick={(e)=>{ change.goToLocation() }}  color='success' variant={'outlined'}>Location</Button>
+                    <Button onClick={(e)=>{ change.goToLocation(item) }}  color='success' variant={'outlined'}>Location</Button>
+                </Row>
+
+                <Row classList={'bo py-2 r-x-start'}>
+                    <Button onClick={(e)=>{ change.callCustomer(item) }}  color='success' variant={'outlined'}>Call</Button>
                 </Row>
 
             </Col>

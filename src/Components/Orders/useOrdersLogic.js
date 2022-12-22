@@ -26,9 +26,10 @@ export default function useOrdersLogic(){
     const USER_DATA = getLocalUserData();
     const storeId = USER_DATA.store_id;
 
+    function goToLocation(item){
 
-    function goToLocation(){
-        console.log("location");
+        console.log(item.location[0]);
+        window.location.assign("https://www.google.com/maps/search/?api=1&query="+item.location[0].lat+"%2C"+item.location[0].lng);
     }
 
     function acceptDelevery(orderId){
@@ -47,12 +48,19 @@ export default function useOrdersLogic(){
 
     }
 
+    let potbc_payload_modified = []
     function processOrdersToBeCompleted(data){
+
+        potbc_payload_modified = [];
 
         if(data.status == "success"){
 
+            potbc_payload_modified = data.payload.map((item)=>{
+                return {...item,location: JSON.parse(item.location)}
+            });
+
             setState((prevState)=>{
-                return {...prevState, data: data.payload}
+                return {...prevState, data: potbc_payload_modified}
             });
         }
         else{
@@ -84,6 +92,11 @@ export default function useOrdersLogic(){
         }
     }
 
+    function callCustomer(item){
+
+        window.open("tel:+918086730300");
+    }
+
 
     let l_currentLocalUserData = {};
     let userData = {};
@@ -113,7 +126,8 @@ export default function useOrdersLogic(){
         goToLocation: goToLocation,
         acceptDelevery: acceptDelevery,
         completeDelivery: completeDelivery,
-        logout: logout
+        logout: logout,
+        callCustomer: callCustomer
 
     }
 

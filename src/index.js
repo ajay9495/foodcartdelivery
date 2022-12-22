@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import store from './Redux/Store'
 import { Provider } from 'react-redux'
+import TestRegister from './ServiceWorker/Register'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,3 +25,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// TestRegister();
